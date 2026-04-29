@@ -35,7 +35,10 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-    // thư viện upload
+    // 1. thư viện gì để làm tính năng upload
+    implementation("org.apache.commons:commons-fileupload2-jakarta:2.0.0-M1")
+    // Source: https://mvnrepository.com/artifact/com.cloudinary/cloudinary-http44
+    implementation("com.cloudinary:cloudinary-http44:1.32.2")
 }
 
 tasks.named('test') {
