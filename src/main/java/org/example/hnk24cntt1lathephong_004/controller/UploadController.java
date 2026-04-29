@@ -15,12 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class UploadController {
     private final UploadService uploadService;
-
     @GetMapping
     public String form() {
         return "form";
     }
-
     @PostMapping
     public String handleUpload(
             @RequestParam(name = "file") MultipartFile file,

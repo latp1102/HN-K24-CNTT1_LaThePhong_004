@@ -13,26 +13,16 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UploadService {
     private final Cloudinary cloudinary;
-
     public String uploadFile(MultipartFile file) {
-
-
         try {
             String fileName = file.getOriginalFilename();
-
-            // avatar.png --> avatar
-            // vinh.avatar.png
-
             if(fileName != null && fileName.contains(".")) {
                 fileName = fileName.substring(0,fileName.lastIndexOf("."));
             }
-
             Map uploadParams = ObjectUtils.asMap(
                     "public_id",fileName
             );
-
             Map uploadResult = cloudinary.uploader().upload(file.getBytes(), uploadParams);
-
             return uploadResult.get("secure_url").toString();
         } catch (IOException e) {
             throw new RuntimeException(e);
