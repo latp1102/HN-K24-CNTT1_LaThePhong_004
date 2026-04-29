@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/save}" th:object="${spacecraft}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" />
+    </div>
+    <div>
+        <label for="manufacturer">Manufacturer</label>
+        <input type="text" id="manufacturer" th:field="*{manufacturer}" />
+    </div>
+    <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" th:field="*{date}" />
+    </div>
+    <button type="submit">Lưu</button>
+</form>
+</body>
+</html>

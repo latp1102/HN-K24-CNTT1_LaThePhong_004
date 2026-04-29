@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/create}">Thêm</a>
+<table class="table" border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Manufacturer</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="spacecraft : ${spacecrafts}">
+        <td th:text="${spacecraft.id}"></td>
+        <td th:text="${spacecraft.name}"></td>
+        <td th:text="${spacecraft.manufacturer}"></td>
+<!--        <td th:text="${spacecraft.date}"></td>-->
+        <td th:text="${#temporals.format(spacecraft.date, 'dd-MM-yyyy')}"></td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${spacecraft.id})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${spacecraft.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
